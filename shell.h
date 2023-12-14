@@ -16,6 +16,13 @@ void _env(void);
 int _excute(char **argv);
 int empty(char *buff);
 
+/* String funcation*/
+int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+int _strlen(char *s);
+char *_strdup(const char *str);
+
 extern char **environ;
 
 #endif

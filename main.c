@@ -17,13 +17,13 @@ int main(void)
 		if (isatty(0))
 			printf("hsh$ ");
 		read = getline(&cmd, &n, stdin);
-		if (read == -1 || strcmp("exit\n", cmd) == 0)
+		if (read == -1 || _strcmp("exit\n", cmd) == 0)
 		{
 			free(cmd);
 			break;
 		}
 		cmd[read - 1] = '\0';
-		if (strcmp("env", cmd) == 0)
+		if (_strcmp("env", cmd) == 0)
 		{
 			_env();
 			continue;
