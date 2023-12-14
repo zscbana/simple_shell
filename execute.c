@@ -2,25 +2,25 @@
 
 /**
  * _excute - execute command
- * @argv:arguments
+ * @argv: arguments
+ * Return: exit status
  */
 
-void _excute(char **argv)
+int _excute(char **argv)
 {
-	char *cmd = NULL, *actual_cmd = NULL;
-	int id;
+	int id = fork(), status;
 
-	if (argv)
+	if (id == 0)
 	{
-		cmd = argv[0];
-		actual_cmd = _location(cmd);
-		id = fork();
-		if (id == 0)
-		{
-			if (execve(actual_cmd, argv, environ) == -1)
-				perror("Error");
-		}
-		else
-			wait(NULL);
+		if (execve(argv[0], argv, environ) == -1)
+			perror("Error");
 	}
+	else
+	{
+		wait(&status);
+		if (WIFEXITED(status))
+			status = WEXITSTATUS(status);
+	}
+
+	return (status);
 }

@@ -13,7 +13,8 @@ char **_break(char *str, char *sep);
 char *_location(char *command);
 char *_getenv(char *env_var);
 void _env(void);
-void _excute(char **argv);
+int _excute(char **argv);
+int empty(char *buff);
 
 extern char **environ;
 

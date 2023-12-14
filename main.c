@@ -10,6 +10,7 @@ int main(void)
 	char *cmd = NULL, **args;
 	size_t n = 0;
 	ssize_t read;
+	int exit_status = 0;
 
 	while (1)
 	{
@@ -22,13 +23,23 @@ int main(void)
 			break;
 		}
 		cmd[read - 1] = '\0';
+		if (strcmp("env", cmd) == 0)
+		{
+			_env();
+			continue;
+		}
+		if (empty(cmd) == 1)
+		{
+			exit_status = 0;
+			continue;
+		}
 		args = _break(cmd, " ");
 		args[0] = _location(args[0]);
 		if (args[0] != NULL)
-			_excute(args);
+			exit_status = _excute(args);
 		else
 			perror("Error");
 		free(args);
 	}
-	return (0);
+		return (exit_status);
 }
