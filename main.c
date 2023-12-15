@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	char *cmd = NULL, **args;
+	char *cmd = NULL, **args, *comment;
 	size_t n = 0;
 	ssize_t read;
 	int exit_status = 0;
@@ -21,6 +21,11 @@ int main(void)
 		{
 			free(cmd);
 			break;
+		}
+		comment = strchr(cmd, '#');
+		if (comment != NULL)
+		{
+			*comment = '\0';
 		}
 		cmd[read - 1] = '\0';
 		if (_strcmp("env", cmd) == 0)
@@ -41,5 +46,5 @@ int main(void)
 			perror("Error");
 		free(args);
 	}
-		return (exit_status);
+	return (exit_status);
 }
