@@ -22,7 +22,7 @@ int main(void)
 			free(cmd);
 			break;
 		}
-		comment = strchr(cmd, '#');
+		comment = _strchr(cmd, '#');
 		if (comment != NULL)
 		{
 			*comment = '\0';
