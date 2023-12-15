@@ -7,10 +7,13 @@
 
 void remove_comments(char *str)
 {
-	char *comment = strchr(str, '#');
+    char *comment = strchr(str, '#');
 
-	if (comment != NULL)
-	{
-		*comment = '\0';
-	}
+    if (comment != NULL)
+    {
+        if (comment == str)
+        {
+            *comment = '\0';
+        }
+    }
 }
