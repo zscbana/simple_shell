@@ -15,6 +15,7 @@ char *_getenv(char *env_var);
 void _env(void);
 int _excute(char **argv);
 int empty(char *buff);
+void remove_comments(char *str);
 
 /* String funcation*/
 int _strcmp(char *s1, char *s2);
