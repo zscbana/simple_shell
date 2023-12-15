@@ -1,16 +1,14 @@
 #include "shell.h"
-
 /**
- * remove_comments - Removes comments from a string
- * @str:string to be modified.
+ * remove_comments - Removes comments from the beginning of a string
+ * @str: String to be modified.
  */
-
 void remove_comments(char *str)
 {
-    char *comment = _strchr(str, '#');
+	char *comment = strchr(str, '#');
 
-    if (comment != NULL && comment == str)
-    {
-        *comment = '\0';
-    }
+	if (comment != NULL)
+	{
+		*comment = '\0';
+	}
 }
