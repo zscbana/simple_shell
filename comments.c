@@ -12,6 +12,5 @@ void remove_comments(char *str)
 	if (comment != NULL)
 	{
 		*comment = '\0';
-		printf("5114\n");
 	}
 }
